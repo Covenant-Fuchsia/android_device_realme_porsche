@@ -14,6 +14,10 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a76
 
+# Support 32bis
+TARGET_INCLUDE_32_BIT_LIBS := true
+TARGET_USES_64_BIT_BINDER := true
+
 # AVB - Disable Verification
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 
@@ -99,7 +103,7 @@ KERNEL_DEFCONFIG := lahaina-qgki_defconfig
 TARGET_HEALTH_CHARGING_CONTROL_CHARGING_PATH := /sys/class/oplus_chg/battery/mmi_charging_enable
 
 # OTA Assert
-TARGET_OTA_ASSERT_DEVICE := porsche|RE58B2L1
+TARGET_OTA_ASSERT_DEVICE := porsche|RE58B2L1|lahaina
 
 # Partitions - A/B
 AB_OTA_PARTITIONS := boot dtbo odm product system system_ext vendor vendor_boot vbmeta vbmeta_system vbmeta_vendor

@@ -1,2 +1,106 @@
-# Recovery
-ro.recovery.ui.margin_height=103
+############Covenant Fuchsia ################
+########### Ajustes de E/S (I/O) ############
+#############################################
+# Define a prioridade do agendador de E/S para desempenho (usa noop ou deadline para menor latência)
+ro.sys.io.scheduler=deadline
+# Configura o intervalo de escrita em cache para 2 segundos (reduzindo a carga de escrita contínua)
+vm.dirty_writeback_centisecs=200
+vm.dirty_expire_centisecs=200
+# Aumenta o tamanho do cache de blocos para otimizar a leitura de arquivos
+ro.sys.storage.buffer.size.kb=128
+# Configura cache agressivo para armazenamento interno
+persist.sys.io.cache_flush_delay=10
+persist.sys.storage.buffer.sync=true
+# Reduz o tempo de atualização do cache de blocos para um melhor desempenho de leitura
+fs.update_delay=5
+# Força o SQLite a usar o modo de "memória compartilhada" para aumentar a velocidade
+debug.sqlite.enable_shared_cache=1
+# Habilita o modo de sincronização para o SQLite, o que melhora o desempenho de escrita
+debug.sqlite.syncmode=normal
+# Mantém os arquivos de logs compactados para otimizar o espaço de armazenamento
+persist.sys.purgeable_assets=1
+# Habilita um buffer maior para a memória de armazenamento, otimizando o desempenho de escrita
+ro.sys.fw.empty_app_percent=50
+persist.sys.fw.update_period=2000
+# Reduz o número de processos de segundo plano, ajudando na carga do sistema de E/S
+ro.sys.fw.bg_apps_limit=10
+# Melhora a velocidade de gravação, usando buffer para armazenamento
+persist.sys.sdcardfs=false
+# Ajusta o ZRAM para reduzir a carga no armazenamento principal
+persist.sys.zram.enable=true
+persist.sys.zram.disksize=512M
+persist.sys.zram.compression=1
+# Define o armazenamento de cache agressivo para armazenamento
+dalvik.vm.cache-swap=true
+#Desativar logs
+logcat.live=disable
+persist.service.lgospd.enable=0
+persist.service.pcsync.enable=0
+# Tentar ocultar root
+ro.boot.verifiedbootstate=green
+ro.boot.veritymode=enforcing
+ro.boot.vbmeta.device_state=locked
+# desativar logs
+logd.statistics=0
+trustkernel.log.state=disable
+# Extreme batetery saver
+power.extreme_saving_mode=1
+pm.sleep_mode=1
+# Melhorar a resposta de toque e interface do usuário
+windowsmgr.max_events_per_sec=150
+ro.min_pointer_dur=8
+ro.max.fling_velocity=12000
+############ Otimizações de CPU e Agendador de Tarefas ############
+###################################################################
+# Define a quantidade mínima e máxima de núcleos ativos para desempenho
+ro.vendor.qti.core.ctl_min_cpu=2
+ro.vendor.qti.core.ctl_max_cpu=4
+# Ajuste para otimizar o desempenho do scheduler
+sched.upmigrate=85
+sched.downmigrate=75
+sched_heavy_task_thresh=30
+sched_boost=1
+# Configuração do cache do SurfaceFlinger
+ro.egl.blobcache.multifile=true
+ro.egl.blobcache.multifile_limit=33554432
+# Otimizações para liberar memória mais agressivamente
+persist.sys.purgeable_assets=1
+persist.sys.use_16bpp_alpha=1
+dalvik.vm.heapgrowthlimit=192m
+dalvik.vm.heapsize=512m
+# Habilita a renderização de hardware (GPU) para mais desempenho gráfico
+ro.sf.compbypass.enable=0
+hwui.disable_vsync=true
+hwui.render_dirty_regions=false
+# Aceleradores gráficos e configurações de composição
+debug.sf.hw=1
+debug.composition.type=gpu
+ro.product.gpu.driver=1
+graphics.hal.force_software=0
+persist.sys.force_hw_vsync=1
+# Otimiza o compilador ART para o System Server
+dalvik.vm.systemservercompilerfilter=speed
+dalvik.vm.systemuicompilerfilter=speed
+# Aumenta a performance do UI
+persist.sys.ui.accelerate=1
+persist.sys.ui.hw=1
+persist.sys.gpu.vr=1
+# Melhorias gerais no desempenho do sistema
+persist.sys.purgeable_assets=1
+debug.performance.tuning=1
+debug.performance_hint=1
+# Configurações de latência de espera em suspensão
+suspend.max_sleep_time_millis=40000
+suspend.short_suspend_backoff_enabled=true
+suspend.short_suspend_threshold_millis=2000
+# Ajusta a configuração para reduzir logs de depuração e melhorar o desempenho
+ro.config.nocheckin=1
+profiler.force_disable_ulog=1
+profiler.force_disable_err_rpt=1
+debug.sf.enable_transaction_tracing=false
+#
+ro.build.display.id.show=Covenant Fuchsia GT2
+ro.vendor.oplus.market.name=Covenant Fuchsia GT2
+ro.product.vendor.name=Covenant Fuchsia GT2
+ro.product.name=Covenant_Fuchsia
+ro.product.model=Covenant Fuchsia GT2

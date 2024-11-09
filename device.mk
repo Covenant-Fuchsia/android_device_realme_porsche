@@ -3,6 +3,9 @@ DEVICE_PATH := device/realme/porsche
 HARDWARE_PATH := hardware/oplus
 QCOM_COMMON_PATH := device/qcom/common
 
+# ABi
+PRODUCT_EXTRA_COMPATIBLE_ARCHS := arm
+
 # Enable virtual A/B compression
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/compression.mk)
 
@@ -82,10 +85,10 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/display/display_id_4630946728207028354.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630946728207028354.xml
 
 # Dolby Manager
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/media/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml
 
-PRODUCT_PACKAGES += \
+#PRODUCT_PACKAGES += \
     DolbyManager
 
 # DRM
